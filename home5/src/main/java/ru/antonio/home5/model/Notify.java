@@ -1,4 +1,4 @@
-package ru.antonio.spring04home;
+package ru.antonio.home5.model;
 
 public class Notify {
     private int id;

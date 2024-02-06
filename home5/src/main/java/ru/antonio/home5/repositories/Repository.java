@@ -1,4 +1,6 @@
-package ru.antonio.spring04home;
+package ru.antonio.home5.repositories;
+
+import ru.antonio.home5.model.Questionnaire;
 
 import java.util.List;
 

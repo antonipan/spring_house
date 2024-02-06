@@ -1,9 +1,11 @@
-package ru.antonio.spring04home;
+package ru.antonio.home5.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.antonio.home5.services.QuestionnaireService;
+import ru.antonio.home5.model.Questionnaire;
 
 import java.util.List;
 
