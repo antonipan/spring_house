@@ -31,7 +31,23 @@ public class TeacherController {
         return "teachers";
     }
 
-    @GetMapping("/experience/{experience}")
+    @GetMapping("/sort/{paramSorted}")
+    public String getSorted (Model model, @PathVariable String paramSorted) {
+        if (paramSorted.equals("name")) {
+            model.addAttribute("teachers", teacherService.sortedTeachersByName());
+            return "teachers";
+        } else if (paramSorted.equals("experience")) {
+            model.addAttribute("teachers", teacherService.sortedTeachersByExperience());
+            return "teachers";
+        } else if (paramSorted.equals("subject")) {
+            model.addAttribute("teachers", teacherService.sortedTeachersBySubject());
+            return "teachers";
+        } else {
+            return "";
+        }
+    }
+
+    @GetMapping("/filter/{experience}")
     public String getByExperience (Model model, @PathVariable int experience){
          model.addAttribute("teachers", teacherService.getListByExperience(experience));
         return "teachers";

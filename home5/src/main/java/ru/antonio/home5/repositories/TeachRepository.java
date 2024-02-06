@@ -13,4 +13,10 @@ public interface TeachRepository extends JpaRepository<Teacher, Long> {
     List<Teacher> findByExperience(int experience);
 
     List<Teacher> findBySubject(String subject);
+
+    List<Teacher> findByOrderByName();
+
+    List<Teacher> findByOrderByExperience();
+
+    List<Teacher> findByOrderBySubject();
 }

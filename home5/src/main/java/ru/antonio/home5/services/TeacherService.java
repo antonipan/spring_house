@@ -1,5 +1,6 @@
 package ru.antonio.home5.services;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ru.antonio.home5.model.Teacher;
 import ru.antonio.home5.repositories.TeachRepository;
@@ -48,5 +49,17 @@ public class TeacherService {
 
     public void deleteById(Long id) {
         teachRepository.deleteById(id);
+    }
+
+    public List <Teacher> sortedTeachersByName () {
+        return teachRepository.findByOrderByName();
+    }
+
+    public List<Teacher> sortedTeachersByExperience() {
+        return teachRepository.findByOrderByExperience();
+    }
+
+    public List<Teacher> sortedTeachersBySubject() {
+        return teachRepository.findByOrderBySubject();
     }
 }
