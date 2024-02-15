@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+eureka:
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: teachers
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/teachers/**
+        - id: questionnaires
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/questionnaires/**
+

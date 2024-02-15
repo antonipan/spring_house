@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: questionnaires
+
+  datasource:
+    url: jdbc:postgresql://localhost:2345/cognitiondb
+    username: antonio
+    password: antonio
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+
+eureka:
+  client:
+  registerWithEureka: true
+  fetchRegistry: true
+  serviceUrl:
+    defaultZone: "http://localhost:8080/eureka/"

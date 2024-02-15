@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+
+  #Контейнер с базой данных
+  postgress:
+    image: b0b90c1d9579
+    ports:
+      - 5432:5432
+      
+  #Сервер
+  server:
+    build: cognitionServer/
+    command: cognitionServer.jar
+    ports:
+      - 8761:8761
+    depends_on:
+      - postgress
+  
+  #Контейнер с методиками
+  questionnaires:
+    build: questionnaires/
+    command: questionnaires.jar
+    ports:
+      - 8081:8081
+    depends_on:
+      - postgress
+      - server
+
+  #Контейнер с базой 
+  teachers:
+    build: teachers/
+    command: teachers.jar
+    ports:
+      - 8082:8082
+    depends_on:
+      - postgress
+      - server
+
+
+  gateway:
+    build: gatewayservice/
+    command: gatewaiservice.jar
+    ports:
+      - 8082:8082
+    depends_on:
+      - postgress
+      - server
